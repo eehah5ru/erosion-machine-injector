@@ -1,4 +1,4 @@
-# erosion machne tester
+# erosion machne injector - firefox plugin
 
 ## What it does
 
