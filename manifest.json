@@ -1,0 +1,42 @@
+{
+
+  "description": "Erosion Machine tester",
+  "manifest_version": 2,
+  "name": "erosion-machine-tester",
+  "version": "1.0",
+  "homepage_url": "https://eeefff.org",
+
+  "icons": {
+    "48": "pen.svg"
+  },
+
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "activeTab",
+    "https://eeefff.org/*",
+    "<all_urls>"
+  ],
+
+  "background": {
+    "scripts": ["lib/lodash.js", "background.js"]
+  },
+
+  // "web_accessible_resources": [
+  //   "beasts/*.jpg",
+  //   "bkg/*.png",
+  //   "images/*.png",
+  //   "css/erosion.css"
+  // ]
+  // "web_accessible_resources": [
+  //   "images/*.png",
+  //   "images/*.jpg"
+  // ],
+
+  "browser_specific_settings": {
+    "gecko": {
+      "strict_min_version": "57.0a1"
+    }
+  }
+
+}
