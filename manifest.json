@@ -35,7 +35,8 @@
   // ],
 
   "web_accessible_resources": [
-    "content_css/erosion-machine-timeline.css"
+    "content_css/erosion-machine-timeline.css",
+    "data/timeline.json"
   ],
 
   "browser_specific_settings": {

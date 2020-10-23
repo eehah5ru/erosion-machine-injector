@@ -56,10 +56,16 @@ function injectJs(tabId, filePath) {
 browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   const log = _.partial(console.log, '[inject]');
 
+  const timelineUrl = browser.extension.getURL("data/timeline.json");
+
   if (_.chain(changeInfo).get('status', '').eq('complete').value()) {
     //return browser.tabs.executeScript(tabId, {file: '/content_scripts/runtime-main.js'})
     return browser.tabs.executeScript(tabId, {code: "document.body.insertAdjacentHTML(\"afterbegin\", \"<div id='root'></div>\")"})
       .then(() => log('root was injected'))
+      .then(() => {
+        return browser.tabs.executeScript(tabId, {code: "document.body.insertAdjacentHTML(\"afterbegin\", \"<input type='hidden' id='timeline-url' value='" + timelineUrl + "'>\")"});
+      })
+      .then(() => log("timelineUrl was injected"))
       .then(() => {
         return browser.tabs.executeScript(tabId, {file: '/content_scripts/runtime-main.js'});
       })
