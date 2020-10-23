@@ -14,6 +14,7 @@
     "webRequest",
     "webRequestBlocking",
     "activeTab",
+    "tabs",
     "https://eeefff.org/*",
     "<all_urls>"
   ],
@@ -32,6 +33,10 @@
   //   "images/*.png",
   //   "images/*.jpg"
   // ],
+
+  "web_accessible_resources": [
+    "content_css/erosion-machine-timeline.css"
+  ],
 
   "browser_specific_settings": {
     "gecko": {

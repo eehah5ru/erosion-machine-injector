@@ -72,7 +72,11 @@ browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
         return browser.tabs.executeScript(tabId, {file: '/content_scripts/main-chunk.js'});
       })
       .then(() => log('main was injected'))
-      .catch((e) => { console.error("[inject-js-scripts]", e); });
+      .then(() => {
+        return browser.tabs.insertCSS(tabId, {file: browser.extension.getURL("content_css/erosion-machine-timeline.css")});
+      })
+      .then(() => log('css was injected'))
+      .catch((e) => { console.error("[injecting]", e); });
 
       // .then(() => {
       //   return browser.tabs.executeScript(tabId, {file: '/content_scripts/vendors-main.js'});
